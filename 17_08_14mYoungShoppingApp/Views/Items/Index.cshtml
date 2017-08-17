@@ -1,0 +1,72 @@
+﻿
+
+
+
+	
+
+
+
+				<div class="w3-row w3-grayscale" style="margin-top: 100px; color: aqua">
+					
+					
+						@foreach (var item in Model) //This will iterate all pics in file
+						{
+							<div class="w3-col l3 s6">
+								<div class="w3-container">
+									<img class="imageRestrict" src="@item.MediaURL" style="width:100%" />
+									<p>@item.Name<br><b>$@item.Price</b></p>
+									<p><strong>$2400</strong></p>
+								</div>
+							</div>
+						}
+						@*<div class="w3-container">
+								<img class="imageRestrict" src="~/assets/Pics/m2.jpg" style="width:100%" />
+								<p>CFW-1100</p>
+								<p><strong>$1600</strong></p>
+							</div>*@
+					
+
+
+					@*<div class="w3-col l3 s6">
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m3.jpg" style="width:100%" />
+							<p>CFW-850</p>
+							<p><strong>$1550</strong></p>
+						</div>
+
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m5.jpg" style="width:100%" />
+							<p>CFW-2500</p>
+							<p><strong>$8700</strong></p>
+						</div>
+					</div>*@
+
+					@*<div class="w3-col l3 s6">
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m6.jpg" style="width:100%" />
+							<p>CFW-1300</p>
+							<p><strong>$2400</strong></p>
+						</div>
+
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m7.jpg" style="width:100%" />
+							<p>CFW-1300</p>
+							<p><strong>$2400</strong></p>
+						</div>
+					</div>*@
+
+					@*<div class="w3-col l3 s6">
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m8.jpg" style="width:100%" />
+							<p>CFW-1300</p>
+							<p><strong>$2400</strong></p>
+						</div>
+
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m9.jpg" style="width:100%" />
+							<p>CFW-1300</p>
+							<p><strong>$2400</strong></p>
+						</div>
+					</div>*@					
+				</div>
+	

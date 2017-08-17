@@ -1,0 +1,169 @@
+﻿.bodyBackgroundColor {
+    background-color: black;
+}
+
+
+
+.myCustomNavItem a{
+    display: block;
+    font-size: 24px;
+    color: grey;
+    text-decoration: none;
+}
+.headingforMenu{
+	font-size:24px
+}
+
+.headingforMenu a{
+    font-size: 24px;
+    display: block;
+}
+
+.myCustomNavItem a:hover {
+    background-color: blueviolet;
+    color: lawngreen;
+	}
+.needLineSpace {
+    line-height: 1.2em;
+
+}
+.picSpace {
+    margin-bottom: 1em;
+}
+nav {
+    height: 500px;
+    width: 100%;
+    position: fixed;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.well {
+    background-color: black;
+    border: 0px;
+}
+
+
+
+
+
+
+
+
+.subBox {
+	position: center;
+    background-color: black;
+    height: 250px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+.contactBox, .aboutBox, .storeBox {
+    background-color: black;
+    color: white;
+    background-size: 20px;
+    height: 250px;
+}
+
+
+
+.aboutBox {
+    text-align: center;
+}
+
+
+
+
+.store {
+    text-align: center;
+}
+
+
+
+
+
+
+.footerColor {
+    background-color:black;
+}
+
+
+
+picOne:hover {
+                color:lawngreen;
+                display:block;
+            }
+
+
+
+
+.imageRestrict {
+	max-width: 2800px !important;
+	max-height: 600px !important;
+}
+
+
+
+
+
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+	background-color: darkred;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid black;
+	width: 80%;
+}
+
+/* The Close Button */
+.close {
+	color: lawngreen;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+	.close:hover,
+	.close:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+
+
+
+

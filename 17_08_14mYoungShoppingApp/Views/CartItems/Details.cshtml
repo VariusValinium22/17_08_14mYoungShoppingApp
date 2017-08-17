@@ -1,0 +1,57 @@
+﻿@model _17_08_14mYoungShoppingApp.Models.CartItem
+
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CartItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Count)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Count)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+	@User.IsInRole("Admin"))
+	<div>
+		@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+	</div>	
+	<div>
+		@Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+	</div>    
+
+	@Html.ActionLink("Back to List", "Index")
+</p>
