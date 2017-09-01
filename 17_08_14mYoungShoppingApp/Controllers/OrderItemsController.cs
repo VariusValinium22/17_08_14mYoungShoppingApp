@@ -10,10 +10,8 @@ using _17_08_14mYoungShoppingApp.Models;
 
 namespace _17_08_14mYoungShoppingApp.Controllers
 {
-    public class OrderItemsController : Controller
+    public class OrderItemsController : Universal
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: OrderItems
         public ActionResult Index()
         {

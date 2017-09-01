@@ -1,0 +1,252 @@
+﻿	<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+			  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link href="~/assets/CSS/MyCustomStyle.css" rel="stylesheet" />
+
+	</head>
+	<body class="bodyBackgroundColor">
+		<nav id="boogieBar" style="display:none; z-index: 10000; color:crimson; background-color: black; overflow: hidden;">
+
+			<i id="navClose" class="fa fa-times-circle pull-right" aria-hidden="true" style="color:lawngreen; font-size:25px"></i>
+
+
+
+			<div>LOGO</div>
+			<div class="myCustomNavItem">
+				<a href="#">CFW Series</a>
+				<a href="#">CFAW Series</a>
+				<a href="#">Collection</a>
+				<div>
+					<a href="#">2016</a>
+					<a href="#">2015</a>
+					<a href="#">2014</a>
+				</div>
+				<a href="#">Straps</a>
+				<a href="#">Parts</a>
+				<a href="#">Tools</a>
+				<a href="#">Accessories</a>
+			</div>
+			<div class="headingforMenu">
+				<a href="#">Contract</a>
+
+
+				<a href="#" id="myAnchor">Newsletter</a>
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<p style="color:lawngreen">Some text in the Modal..</p>
+					</div>
+
+
+
+				</div>
+
+
+
+
+
+				<a href="#">Subscribe</a>
+			</div>
+		</nav>
+		<div class="container">
+			<div>
+
+
+				<div class="col-xs-12" style="color: lawngreen">
+
+					<div class="row" style="color:lawngreen; font-size:25px">
+
+						<i id="navOpen" class="fa fa-bars pull-left" ></i>
+						@Html.Partial("_LoginPartial")
+						
+						@if (Request.IsAuthenticated)
+						{
+							<div class="pull-right">
+								<i class="fa fa-shopping-cart"></i>@ViewBag.CartItems.Count
+							</div>
+						}
+						<i class="fa fa-search pull-right"></i>
+					</div>
+
+
+
+					<div class="w3-row">
+						<div class="w3-display-container w3-container">
+							<img src="~/assets/Pics/3.jpg" class="img-responsive center-block w3-col l3 s6" style="width:100%; min-width:300px" />
+							<div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
+								<h1 class="w3-jumbo w3-hide-small w3-text-red">New arrivals</h1>
+								<h1>Marty's Watch Shop 2017</h1>
+								<h1 class="w3-hide-small w3-text-red">Collector's Edition</h1>
+								<p><a href="@Url.Action("Index","Items")" class="w3-button w3-black w3-padding-large w3-large w3-text-red">SHOP NOW</a></p>
+							</div>
+						</div>
+					</div>
+					@RenderBody()
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div class="w3-container subBox" style="padding-top: 150px" ;>
+
+			<h1>Subscribe</h1>
+			<p style="color:lawngreen">
+				To get a <span style="color:mediumpurple">special</span>
+				offer and <span style="color:red">VIP</span> treatment
+			</p>
+			<input placeholder="Enter e-mail" />
+			<button type="button">Subscribe</button>
+
+		</div>
+
+
+
+
+
+
+		<div class="row">
+			<div class="col-xs-4 contactBox">
+
+
+
+				<h4>Contact</h4>
+				<p>QUestions? Go ahead.</p>
+				<div class="needLineSpace">
+					<div><input placeholder="Name" /></div>
+					<p></p>
+					<div><input placeholder="Email" /></div>
+					<p></p>
+					<div><input placeholder="Subject" /></div>
+					<p></p>
+					<div><input placeholder="Message" /></div>
+				</div>
+
+
+
+			</div>
+
+
+
+
+
+			<div class="col-xs-4 aboutBox">
+				<div>
+					<h4>About</h4>
+				</div>
+				<div>
+					<a href="#">About us</a>
+				</div>
+				<div>
+					<a href="#">We're hiring</a>
+				</div>
+				<div>
+					<a href="#">Support</a>
+				</div>
+				<div>
+					<a href="#">Find Store</a>
+				</div>
+				<div>
+					<a href="#">Shipment</a>
+				</div>
+				<div>
+					<a href="#">Payment</a>
+				</div>
+				<div>
+					<a href="#">Gift Card</a>
+				</div>
+				<div>
+					<a href="#">Return</a>
+				</div>
+				<div>
+					<a href="#">Help</a>
+				</div>
+			</div>
+
+
+
+
+
+
+			<div class="col-xs-4 storeBox">
+
+				<div>
+					<h4>Store</h4>
+					<p>Company Name</p>
+					<p>00445673</p>
+					<p>ex@mail.com</p>
+					<h4>We Accept</h4>
+					<p>Visa</p>
+					<p>Mastercard</p>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<div>
+			<footer class="footerColor" background-color="black">
+				<center>
+					Powered by <a href="#"></a> &copy; &#8364; &clubs; &notin; &reg; Copyright CoderFoundry
+				</center>
+
+			</footer>
+		</div>
+		<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+		@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
+		<script>
+			$("#navOpen").click(
+				function open() {
+					document.getElementById("boogieBar").style.display = "block";
+					document.getElementById("boogieBar").style.position = "fixed";
+					document.getElementById("boogieBar").style.width = "250px";
+				}
+			)
+			$("#navClose").click(
+				function open() {
+					document.getElementById("boogieBar").style.display = "none";
+				}
+			)
+			// Get the modal
+			var modal = document.getElementById('myModal');
+
+			// Get the anchor that opens the modal
+			var btn = document.getElementById("myAnchor");
+
+			// Get the <span> element that closes the modal
+			var span = document.getElementsByClassName("close")[0];
+
+			// When the user clicks the anchor, open the modal
+			btn.onclick = function () {
+				modal.style.display = "block";
+			}
+
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function () {
+				modal.style.display = "none";
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+
+		</script>
+		@RenderSection("scripts", required: false)
+	</body>
+
+</html>

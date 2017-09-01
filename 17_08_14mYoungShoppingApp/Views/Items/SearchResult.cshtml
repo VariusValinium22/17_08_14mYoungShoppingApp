@@ -1,0 +1,32 @@
+﻿@model IEnumerable<_17_08_14mYoungShoppingApp.Models.Item>
+
+@{
+	ViewBag.Title = "SearchResult";
+}
+
+<div style="text-align:center; margin-top: 100px; font-size: 50px">
+	<a href="@Url.Action("Create","Items")">Create New Item</a>
+</div>
+
+<div class="w3-row w3-grayscale" style="margin-top: 100px; color: aqua">
+
+	@foreach (var item in Model) //This will iterate all pics in file
+	{
+		<div class="w3-col l3 s6">
+			<div class="w3-container">
+				<a href="@Url.Action("Details", new { id = item.Id })"><img class="imageRestrict" src="@item.MediaURL" style="width:100%" /></a>
+				<p>@item.Name<br><b>$@item.Price</b></p>
+				@if (Request.IsAuthenticated)
+				{
+					using (Html.BeginForm("Create", "CartItems", new { itemId = item.Id }, FormMethod.Post, null))
+					{
+						@Html.AntiForgeryToken()
+						<input type="submit" class="btn btn-danger" value="Add to cart" />
+					}
+				}
+				@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+				@Html.ActionLink("Delete", "Delete", new { id = item.Id })
+			</div>
+		</div>
+	}
+</div>

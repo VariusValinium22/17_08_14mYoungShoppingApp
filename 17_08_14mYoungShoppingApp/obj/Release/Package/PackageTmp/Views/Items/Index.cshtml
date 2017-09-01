@@ -1,0 +1,78 @@
+﻿
+
+<div style="text-align:center; margin-top: 100px; font-size: 50px">
+	<a href="@Url.Action("Create","Items")">Create New Item</a>
+</div>
+
+				<div class="w3-row w3-grayscale" style="margin-top: 100px; color: aqua">
+					
+						@foreach (var item in Model) //This will iterate all pics in file
+						{
+							<div class="w3-col l3 s6">
+								<div class="w3-container">
+									<a href="@Url.Action("Details", new { id = item.Id })"><img class="imageRestrict" src="@item.MediaURL" style="width:100%" /></a>
+									<p>@item.Name<br><b>$@item.Price</b></p>
+									@if (Request.IsAuthenticated)
+									{
+										using (Html.BeginForm("Create", "CartItems", new { itemId = item.Id }, FormMethod.Post, null))
+										{
+											@Html.AntiForgeryToken()
+											<input type="submit" class="btn btn-danger" value="Add to cart" />
+										}
+									}
+										@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+										@Html.ActionLink("Delete", "Delete", new { id = item.Id })
+								</div>	
+							</div>
+						}
+						@*<div class="w3-container">
+								<img class="imageRestrict" src="~/assets/Pics/m2.jpg" style="width:100%" />
+								<p>CFW-1100</p>
+								<p><strong>$1600</strong></p>
+							</div>*@
+					
+
+
+					@*<div class="w3-col l3 s6">
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m3.jpg" style="width:100%" />
+							<p>CFW-850</p>
+							<p><strong>$1550</strong></p>
+						</div>
+
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m5.jpg" style="width:100%" />
+							<p>CFW-2500</p>
+							<p><strong>$8700</strong></p>
+						</div>
+					</div>*@
+
+					@*<div class="w3-col l3 s6">
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m6.jpg" style="width:100%" />
+							<p>CFW-1300</p>
+							<p><strong>$2400</strong></p>
+						</div>
+
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m7.jpg" style="width:100%" />
+							<p>CFW-1300</p>
+							<p><strong>$2400</strong></p>
+						</div>
+					</div>*@
+
+					@*<div class="w3-col l3 s6">
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m8.jpg" style="width:100%" />
+							<p>CFW-1300</p>
+							<p><strong>$2400</strong></p>
+						</div>
+
+						<div class="w3-container">
+							<img class="imageRestrict" src="~/assets/Pics/m9.jpg" style="width:100%" />
+							<p>CFW-1300</p>
+							<p><strong>$2400</strong></p>
+						</div>
+					</div>*@					
+				</div>
+	

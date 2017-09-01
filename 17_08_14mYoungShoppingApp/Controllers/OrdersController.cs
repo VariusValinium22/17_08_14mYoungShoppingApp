@@ -7,17 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using _17_08_14mYoungShoppingApp.Models;
+using Microsoft.AspNet.Identity;
 
 namespace _17_08_14mYoungShoppingApp.Controllers
 {
-    public class OrdersController : Controller
+	[Authorize]
+    public class OrdersController : Universal
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: Orders
         public ActionResult Index()
         {
-            return View(db.Orders.ToList());
+			var user = db.Users.Find(User.Identity.GetUserId());
+
+			return View(user.Orders.ToList());
         }
 
         // GET: Orders/Details/5
@@ -34,9 +36,21 @@ namespace _17_08_14mYoungShoppingApp.Controllers
             }
             return View(order);
         }
-
-        // GET: Orders/Create
-        public ActionResult Create()
+		public ActionResult FinalizeOrder(int? id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			Order order = db.Orders.Find(id);
+			if (order == null)
+			{
+				return HttpNotFound();
+			}
+			return View(order);
+		}
+		// GET: Orders/Create
+		public ActionResult Create()
         {
             return View();
         }
@@ -46,13 +60,28 @@ namespace _17_08_14mYoungShoppingApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Address,City,State,ZipCode,Country,PhoneNumber,Total,OrderDate,CustomerId,OrderDetails")] Order order)
+        public ActionResult Create([Bind(Include = "Id,Address,City,State,ZipCode,Country,PhoneNumber,Total,OrderDate,CustomerId,OrderDetails")] Order order, decimal total)
         {
             if (ModelState.IsValid)
             {
+				var user = db.Users.Find(User.Identity.GetUserId());//USER INPUT ON THE FORM SENT TO ALL OF OUR VIEWS
+				order.CustomerId = user.Id;
+				order.OrderDate = System.DateTime.Now;
+				order.Total = total;
                 db.Orders.Add(order);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                db.SaveChanges();						//created the order
+				foreach (var item in user.CartItems.ToList())// closes dateabase connection
+				{
+					OrderItem orderitem = new OrderItem();	//create a new order item for each item that exists in the list.
+					orderitem.ItemId = item.ItemId;			 
+					orderitem.OrderId = order.Id;			//this line is possible because of the id being assigned by SQL in the db.Orders.Add line above.
+					orderitem.Quantity = item.Count;		
+					orderitem.UnitPrice = item.Item.Price;
+					db.OrderItems.Add(orderitem);
+					db.CartItems.Remove(item);//and also removing the item each time it is created into an order item.
+					db.SaveChanges();
+				}
+                return RedirectToAction("Details", new { id = order.Id}); //what order do we want to look at ?? 
             }
 
             return View(order);

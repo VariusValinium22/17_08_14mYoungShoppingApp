@@ -11,7 +11,8 @@ using _17_08_14mYoungShoppingApp.Models;
 namespace _17_08_14mYoungShoppingApp.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : Universal
+
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

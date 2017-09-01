@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Server=coderfoundry.cloudapp.net,55555;            Database=myoung-shoppingapp;            User ID=myoung;            Password=RogueFrankenstein22;      Persist Security Info=True;            Trusted_Connection=False;            MultipleActiveResultSets=True;            Encrypt=True;            Connection Timeout=30;            TrustServerCertificate=True;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\User\\documents\\visual\ studio\ 2017\\Projects\\17_08_14mYoungShoppingApp\\17_08_14mYoungShoppingApp\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

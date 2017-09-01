@@ -24,11 +24,11 @@ namespace _17_08_14mYoungShoppingApp.Models
 		public ApplicationUser()
 		{
 			this.Orders = new HashSet<Order>();
-				this.CartItem = new HashSet<CartItem>();
+			this.CartItems = new HashSet<CartItem>();
 		}
 
 		public virtual ICollection<Order> Orders { get; set; }
-		public virtual ICollection<CartItem> CartItem { get; set; }
+		public virtual ICollection<CartItem> CartItems { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
